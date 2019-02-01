@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import Views from 'app'
 import store from 'store'
 import * as serviceWorker from 'serviceWorker'
+import 'styles/core.scss'
 
 const App = (
     <BrowserRouter>
