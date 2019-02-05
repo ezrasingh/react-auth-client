@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { register } from 'actions/user'
 
 class RegisterForm extends Component{
-    state = { redirect: false }
     handleSubmit = (event) => {
         event.preventDefault()
         const data = new FormData(event.target)
@@ -15,7 +14,7 @@ class RegisterForm extends Component{
         })
     }
     render(){
-        if(this.state.redirect){
+        if(this.props.redirect){
             return <Redirect exact push to='/'/>
         }
         return(
@@ -35,8 +34,13 @@ class RegisterForm extends Component{
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return { register : credentials => dispatch(register(credentials)) }
+const mapStateToProps = state => {
+    // NOTE: user.email when null indicates user has not been created
+    return { redirect : state.user.email === false }
 }
 
-export default connect(null, mapDispatchToProps)(RegisterForm)
+const mapDispatchToProps = dispatch => {
+    return { register : (credentials) => dispatch(register(credentials)) }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterForm)
