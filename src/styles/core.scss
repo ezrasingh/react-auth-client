@@ -1,0 +1,14 @@
+@import 'theme';
+@import 'ui/layout';
+@import 'ui/typography';
+@import 'views/login';
+@import 'views/register';
+@import 'views/profile';
+
+body{
+  font-family: 'Cabin', serif;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}

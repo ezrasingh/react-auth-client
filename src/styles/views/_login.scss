@@ -1,0 +1,15 @@
+
+.login{
+    background: linear-gradient(to right, #ec008c, #fc6767);
+    .form{
+        padding: 3em;
+        .fas{
+            user-select: none;
+            float: right;
+            padding: 0.5em;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+}
