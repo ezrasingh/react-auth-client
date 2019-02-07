@@ -1,22 +1,6 @@
 
 .profile{
     background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
-    nav{
-        flex-direction: row-reverse;
-        align-items: center;
-        transition: 200ms;
-        box-shadow: 0 3px 6px rgba($dark, 0.16), 0 3px 6px rgba($dark, 0.23);
-        padding: 32px;
-        background: $white;
-        &:hover{
-            transition: 100ms;
-            cursor: help;
-            box-shadow: 0 14px 28px rgba($dark, 0.25), 0 10px 10px rgba($dark, 0.22);
-        }
-        .button{
-            margin: 0;
-        }
-    }
     #card-container{
         margin-top: 64px;
     }

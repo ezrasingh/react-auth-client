@@ -1,0 +1,29 @@
+
+nav.navbar{
+    flex-direction: row-reverse;
+    align-items: center;
+    box-shadow: 0 3px 6px rgba($dark, 0.16), 0 3px 6px rgba($dark, 0.23);
+    height: 64px;
+    padding: 32px;
+    background: $white;
+    &:hover{
+        cursor: help;
+    }
+    .avatar{
+        height: auto;
+        width: 32px;
+        img{
+            margin-top: 50%;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            transition: 100ms;
+            &:hover{
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+            }
+        }
+    }
+    .button{
+        margin: 0;
+    }
+}
