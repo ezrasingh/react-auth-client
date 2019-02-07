@@ -1,15 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import Form from './components/Form'
+import withNavbar from 'utils/withNavbar'
 
 const Update = () => {
     return(
-        <div>
-            <Form/>
-            <br/>
-            <Link to="/profile">View Profile</Link>
+        <div className="flex update-profile overlay v-center h-center">
+            <div className="flex box">
+                <Form/>
+            </div>
         </div>
     )
 }
 
-export default Update
+export default withNavbar(Update)
