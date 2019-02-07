@@ -3,6 +3,7 @@ import api from 'api'
 let loginAttempt = 0
 
 /** Throttle logins by resetting loginAttempt after some time */
+// eslint-disable-next-line
 const loginResetHandler = setInterval(
     () => { loginAttempt = 0 },
     1000 * process.env.REACT_APP_LOGIN_TIMEOUT
