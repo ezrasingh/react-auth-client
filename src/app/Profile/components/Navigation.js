@@ -1,12 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const Navigation = () => {
     return(
-        <nav>
-            <div className="container">
-                <Link className="button" to='/logout'/>
-            </div>
+        <nav className="flex">
+            <NavLink className="button" to='/logout'>
+                Logout
+            </NavLink>
         </nav>
     )
 }

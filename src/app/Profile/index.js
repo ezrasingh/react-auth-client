@@ -4,9 +4,11 @@ import { default as ProfileCard } from './containers/CardContainer'
 
 const Profile = () => {
     return(
-        <div className="profile">
+        <div className="profile overlay">
             <Navigation/>
-            <ProfileCard/>
+            <div id="card-container" className="flex v-center h-center">
+                <ProfileCard/>
+            </div>
         </div>
     )
 }
