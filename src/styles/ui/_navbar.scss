@@ -1,11 +1,17 @@
 
+$navbarSize: 64px;
+
 nav.navbar{
+    position: fixed;
     flex-direction: row-reverse;
     align-items: center;
     box-shadow: 0 3px 6px rgba($dark, 0.16), 0 3px 6px rgba($dark, 0.23);
-    height: 64px;
+    height: $navbarSize;
+    width: 100%;
+    top: 0;
     padding: 32px;
     background: $white;
+    z-index: 100;
     &:hover{
         cursor: help;
     }
@@ -19,6 +25,7 @@ nav.navbar{
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
             transition: 100ms;
             &:hover{
+                user-select: none;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
             }
         }

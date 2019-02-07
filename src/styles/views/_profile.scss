@@ -2,7 +2,7 @@
 .profile{
     background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
     #card-container{
-        margin-top: 64px;
+        margin-top: $navbarSize + 64px;
     }
     .card.flex{
         flex-direction: column;

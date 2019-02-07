@@ -3,21 +3,27 @@ import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 /** Ruute template for registering routes within NavBar  */
-function Route(name, href, auth){
+function Route(name, href, auth, hideOnAuth){
     this.name = name
     this.href = href
     this.auth = auth
+    this.hideOnAuth = hideOnAuth
 }
 
 class Navbar extends Component{
     static routes = [
-        new Route('Logout', '/logout', true),
+        new Route('Logout', '/logout', true)
     ]
     /** Filter routes that require authentication */
     generateRoutes(){
-        return Navbar.routes.filter((route) => {
-            return route.auth ^ !this.props.isLoggedIn
-        })
+        if(!this.props.isLoggedIn){
+            // Filter routes that do not require auth
+            return Navbar.routes.filter((route) => !route.auth)
+        }
+        else{
+            // Filter routes that require auth and are not flagged to hide on auth
+            return Navbar.routes.filter((route) => route.auth && !route.hideOnAuth)
+        }
     }
     renderAvatar = () =>{
         return(
@@ -46,17 +52,4 @@ const mapStateToProps = state => {
     return { ...state.auth, avatar: state.user.profile.avatar }
 }
 
-const ConnectedNavbar = connect(mapStateToProps)(Navbar)
-
-export const withNavbar = Child => props => {
-    return(
-        <Fragment>
-            <div id="fixed-nav">
-                <Navbar/>
-            </div>
-            <Child {...props}/>
-        </Fragment>
-    )
-}
-
-export default ConnectedNavbar
+export default connect(mapStateToProps)(Navbar)
