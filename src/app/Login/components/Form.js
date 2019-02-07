@@ -25,13 +25,17 @@ class LoginForm extends Component{
                 <label htmlFor="email">Email</label>
                 <input id="email" name="email" type="email" required/>
 
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password">
+                    Password
+                    <i 
+                        className={this.state.show ? "fas fa-eye" : "fas fa-eye-slash"}
+                        onClick={this.toggleVisibility}
+                    />
+                </label>
                 <input id="password" name="password" type={this.state.show ? "text" : "password"} required/>
 
-                <label htmlFor="show">Show</label>
-                <input id="show" name="show" type="checkbox" onChange={this.toggleVisibility}/>
-
-                <input type="submit" value="Login"/>
+                <br/>
+                <input className="button button-outline" type="submit" value="Login"/>
             </form>
         )
     }
