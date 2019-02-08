@@ -10,7 +10,7 @@ const Login = () => {
                 <h2>Login</h2>
                 <Form/>
                 <Link to='/register'>
-                    Create an account
+                    Don't have an account?
                 </Link>
             </div>
         </div>
