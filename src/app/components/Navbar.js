@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 
@@ -27,18 +27,21 @@ class Navbar extends Component{
     }
     renderAvatar = () =>{
         return(
-            <figure className="avatar">
+            <figure className="avatar animated rotateIn delay-2">
                 <NavLink to="/profile">
-                    <img src={this.props.avatar || process.env.REACT_APP_DEFAULT_AVATAR}/>
+                    <img 
+                        src={this.props.avatar || process.env.REACT_APP_DEFAULT_AVATAR} 
+                        alt={this.props.name}
+                    />
                 </NavLink>
             </figure>
         )
     }
     render(){
         return(
-            <nav className="flex navbar">
+            <nav className="flex navbar animated slideInDown">
                 {this.generateRoutes().map((route) => (
-                    <NavLink className="button" to={route.href} key={route.href}>
+                    <NavLink className="button button-outline" to={route.href} key={route.href}>
                         {route.name}
                     </NavLink>
                 ))}
@@ -49,7 +52,7 @@ class Navbar extends Component{
 }
 
 const mapStateToProps = state => {
-    return { ...state.auth, avatar: state.user.profile.avatar }
+    return { ...state.auth, avatar: state.user.profile.avatar, name: state.user.profile.name }
 }
 
 export default connect(mapStateToProps)(Navbar)

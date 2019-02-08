@@ -6,7 +6,7 @@ import Form from './components/Form'
 const Login = () => {
     return(
         <div className="login overlay flex h-center v-center">
-            <div className="form box">
+            <div className="form box animated fadeInUp">
                 <h2>Login</h2>
                 <Form/>
                 <Link to='/register'>

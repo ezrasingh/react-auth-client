@@ -5,7 +5,7 @@ import Form from './components/Form'
 const Register = () => {
     return(
         <div className="register overlay flex h-center v-center">
-            <div className="form box">
+            <div className="form box animated fadeInUp">
                 <h2>Register</h2>
                     <Form/>
                 <Link to="/">

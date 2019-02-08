@@ -19,7 +19,7 @@ class UpdateProfile extends Component{
                 <label htmlFor="name">Name</label>
                 <input id="name" name="name" placeholder={!isEmpty(profile) && "name" in profile && profile.name}/>
 
-                <input type="submit" value="Update Profile"/>
+                <input type="submit" value="Save"/>
             </form>
         )
     }
