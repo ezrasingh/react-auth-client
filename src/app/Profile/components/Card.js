@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 const Card = ({ email, profile }) => {
@@ -23,6 +24,13 @@ const Card = ({ email, profile }) => {
             </div>
         </article>
     )
+}
+
+Card.propTypes = {
+    email: PropTypes.string.isRequired,
+    profile: PropTypes.shape({
+        name: PropTypes.string
+    }).isRequired
 }
 
 export default Card

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 
@@ -11,6 +12,11 @@ function Route(name, href, auth, hideOnAuth){
 }
 
 class Navbar extends Component{
+    static propTypes = {
+        isLoggedIn: PropTypes.bool.isRequired,
+        avatar: PropTypes.string,
+        name: PropTypes.string
+    }
     static routes = [
         new Route('Logout', '/logout', true)
     ]

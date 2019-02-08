@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { register } from 'actions/user'
 
 class RegisterForm extends Component{
+    static propTypes = {
+        redirect: PropTypes.bool.isRequired,
+        register: PropTypes.func.isRequired
+    }
     handleSubmit = (event) => {
         event.preventDefault()
         const data = new FormData(event.target)

@@ -1,10 +1,17 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Loader from 'utils/Loader'
 import Card from '../components/Card'
 import { connect } from 'react-redux'
 import { profile } from 'actions/user'
 
 class CardContainer extends Component{
+    static propTypes = {
+        isLoading: PropTypes.bool.isRequired,
+        email: PropTypes.string,
+        profile: PropTypes.object,
+        loadProfile: PropTypes.func.isRequired
+    }
     componentWillMount(){
         this.props.loadProfile()
     }

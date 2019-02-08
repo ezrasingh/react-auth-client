@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { isEmpty } from 'lodash'
 import { update } from 'actions/user'
 
 class UpdateProfile extends Component{
+    static propTypes = {
+        profile: PropTypes.shape({
+            name: PropTypes.string
+        }).isRequired
+    }
     state = { redirect: false }
     handleSubmit = event => {
         event.preventDefault()
@@ -26,7 +32,7 @@ class UpdateProfile extends Component{
 }
 
 const mapStateToProps = state => {
-    return { ...state.user }
+    return { profile: state.user.profile }
 }
 
 const mapDispatchToProps = dispatch => {

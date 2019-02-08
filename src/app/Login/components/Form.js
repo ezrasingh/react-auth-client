@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { login } from 'actions/auth'
 
 class LoginForm extends Component{
+    static propTypes = { 
+        isLoggedIn: PropTypes.bool.isRequired,
+        login: PropTypes.func.isRequired
+    }
     state = { show: false }
     handleSubmit = event => {
         event.preventDefault()
