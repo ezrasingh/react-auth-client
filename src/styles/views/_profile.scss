@@ -6,7 +6,6 @@
     }
     .card.flex{
         flex-direction: column;
-        align-items: center;
         width: 30%;
         background: rgba(white, 0.5);
         .avatar figure{
@@ -23,7 +22,7 @@
             padding: 1em;
             // Profile details container
             span{
-                padding: 1em;
+                padding: 1.5em;
                 padding-bottom: 0;
                 background: $white;
                 border-radius: 16px;
