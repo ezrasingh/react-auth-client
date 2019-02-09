@@ -1,30 +1,21 @@
 import axios from 'axios'
-import _ from 'lodash'
 
 /**
- * A higher order function to mixin Api calls via Axios' interface
+ * Axios configuration
  */
-const adapter = method => (route, payload=null) => {
-    return axios({
-        method,
-        baseURL : process.env.REACT_APP_API_URL,
-        url: route,
-        data: payload,
-        headers: { 
-            'Access-Control-Allow-Origin' : '*',
-            'Authorization' : sessionStorage.getItem('token')
-        }
-    })
-}
+const api = axios.create({
+    baseURL : process.env.REACT_APP_API_URL,
+    headers: { 
+        'Access-Control-Allow-Origin' : '*',
+        'Authorization' : null
+    }
+})
 
-/** 
- * Wrap REST methods to Api adapter
- * Example usage: api.get('/users') or api.post('/authenticate', { ...credentials }) 
- * */
-const api = _([ "get", "post", "put", "delete" ])
-			.zipObject()
-			.mapValues((val, method) => adapter(method))
-            .value()
+// Inject concurrent auth token into each request
+api.interceptors.request.use((config) => {
+    config.headers.Authorization = sessionStorage.getItem('token')
+    return config
+}, err => Promise.reject(err))
 
 
 export default api

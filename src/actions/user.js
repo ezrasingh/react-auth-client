@@ -7,7 +7,7 @@ export const register = ({ email, password, confirm }) => {
         }
         else{
             dispatch({ type : 'REGISTERING_USER' })
-            api.post('/user', { email, password, confirm })
+            api.post('/user', {data: { email, password, confirm }})
             .then((res) => {
                 const { message } = res.data
                 if(res.status === 200){
@@ -39,7 +39,7 @@ export const profile = () => {
 export const update = ({ name }) => {
     return dispatch => {
         dispatch({ type: 'UPDATING_PROFILE' })
-        api.put('/user', { name })
+        api.put('/user', {data: { name }})
         .then((res) => {
             const { message } = res.data
             dispatch({ 
