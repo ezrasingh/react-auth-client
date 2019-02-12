@@ -19,7 +19,7 @@ export const login = ({ email, password }) => {
         }
         else{
             dispatch({ type : 'LOGIN_ATTEMPT' })
-            api.post('/authenticate', {data: { email, password }})
+            api.post('/authenticate', { email, password })
             .then((res) => {
                 if(res.status === 200){
                     const { token } = res.data
