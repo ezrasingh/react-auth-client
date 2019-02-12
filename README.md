@@ -41,7 +41,7 @@ Start staging environment:
 
 ## Deploy
 
-* This codebase supports deployment over [Heroku](https://devcenter.heroku.com/articles/getting-started-with-python)
+* This codebase supports deployment over [Heroku](https://elements.heroku.com/buildpacks/chadwilken/compile-react-app)
 
 ## License
 
