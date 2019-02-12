@@ -15,10 +15,7 @@ class CardContainer extends Component{
     componentWillMount(){
         this.props.loadProfile()
     }
-    /** Check if profile state has updated */
-    shouldComponentUpdate(nextProps){
-        return !!nextProps.email ^ this.props.email
-    }
+    
     render(){
         const { isLoading, email, profile } = this.props
         return isLoading ? <Loader/> : <Card {...{email, profile}}/>
