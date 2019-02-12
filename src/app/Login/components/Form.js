@@ -54,4 +54,5 @@ const mapDispatchToProps = dispatch => {
     return { login: credentials => dispatch(login(credentials)) }
 }
 
+export { LoginForm }
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)

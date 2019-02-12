@@ -33,4 +33,5 @@ const mapDispatchToProps = dispatch => {
     return { loadProfile: () => dispatch(profile()) }
 }
 
+export { CardContainer }
 export default connect(mapStateToProps, mapDispatchToProps)(CardContainer)

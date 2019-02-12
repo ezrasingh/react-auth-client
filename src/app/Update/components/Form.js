@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { isEmpty } from 'lodash'
 import { update } from 'actions/user'
 
-class UpdateProfile extends Component{
+class UpdateForm extends Component{
     static propTypes = {
         profile: PropTypes.shape({
             name: PropTypes.string
@@ -39,4 +39,5 @@ const mapDispatchToProps = dispatch => {
     return { update : profile => dispatch(update(profile)) }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UpdateProfile)
+export { UpdateForm }
+export default connect(mapStateToProps, mapDispatchToProps)(UpdateForm)

@@ -27,4 +27,5 @@ const mapDispatchToProps = dispatch => {
     return { logout : () => dispatch(logout()) }
 }
 
+export { Logout as LogoutComponent }
 export default connect(mapStateToProps, mapDispatchToProps)(Logout)

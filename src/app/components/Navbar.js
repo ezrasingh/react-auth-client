@@ -61,4 +61,5 @@ const mapStateToProps = state => {
     return { ...state.auth, avatar: state.user.profile.avatar, name: state.user.profile.name }
 }
 
+export { Navbar as NavbarComponent }
 export default connect(mapStateToProps)(Navbar)
