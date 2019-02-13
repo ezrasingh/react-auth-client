@@ -1,8 +1,0 @@
-{
-  "short_name": "Auth Client",
-  "name": "Auth portal for flask auth Api",
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#9B4DCA",
-  "background_color": "#242038"
-}
