@@ -24,6 +24,11 @@
     "stage": "npm run build && serve -s build",
     "test": "react-scripts test",
     "coverage": "react-scripts test --env=jsdom --coverage",
+    "deploy" : "git push heroku develop",
+    "patch" : "react-scripts build && npm patch && npm run deploy:git",
+    "feature" : "react-scripts build && npm minor && npm run deploy:git",
+    "release" : "react-scripts build && npm major && npm run deploy:git",
+    "deploy:git" : "git add . && git commit -m 'Version: $npm_package_version' && git push origin master && git checkout develop",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
