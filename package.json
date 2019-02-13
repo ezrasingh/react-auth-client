@@ -23,6 +23,7 @@
     "build": "react-scripts build",
     "stage": "npm run build && serve -s build",
     "test": "react-scripts test",
+    "coverage": "react-scripts test --env=jsdom --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
