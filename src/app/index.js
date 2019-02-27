@@ -8,6 +8,7 @@ import Register from './Register'
 import Logout from './Logout'
 
 const Views = () => {
+    window.scrollTo(0,0)
     return(
         <Switch>
             <Route exact path="/" component={Login}/>
