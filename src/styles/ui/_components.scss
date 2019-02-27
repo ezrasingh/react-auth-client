@@ -1,0 +1,36 @@
+
+button, .btn{
+    width: 94%;
+    margin: 2em 3% 0;
+    border: 1px solid $accent;
+    background: $accent;
+    color: #fff;
+    padding: 1em 0;
+    font-size: 0.75em;
+    font-weight: 700;
+    clear: both;
+    @include border-radius(5px);
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.1s ease-in;
+    &:focus, &:hover{
+        background: #fff;
+        color: $accent;
+    }
+}
+
+a{
+    text-decoration: none;
+    line-height: 1;
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+    padding: 5px 5px;
+    overflow: hidden;
+    color: #333;
+    vertical-align: bottom;
+    &:hover{
+        color: $coolAccent;
+        text-decoration: underline;
+    }
+}

@@ -1,0 +1,60 @@
+form{
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 1em;
+    font-family: 'Roboto', sans-serif;
+    @include border-radius(5px);
+    @include mobile{
+        padding: 2em 1em;
+    }
+    label{
+        color: #444;
+        margin: 0 3% .25em;
+        display: block;
+        font-family: 'Roboto', sans-serif;
+    }
+    input{  
+        width: 100% - 6%;
+        padding: .5em .25em;
+        margin: 0 3% 1em;
+        font-size: 1.2em;
+        border: 1px #444;
+        border-style: solid;
+        outline: none;
+        @include border-radius(5px);
+        &:focus, &:not([type="submit"]):hover{
+            border-style: dotted;
+        }
+	    &#password{
+		    padding-right: 4rem;
+        }
+    }
+    .hide-show{
+        width: 100% - 6%;
+        margin: -3.62em 3% 0 1.5%;
+        position: relative;
+        z-index: 5;
+        span {
+            background:#555;
+            color: #fff;
+            font-size: 1em;
+            padding: 0.5em;
+            float: right;
+            line-height: initial;
+            @include border-radius(5px);
+            @include noselect;
+            cursor: pointer;
+            text-transform: uppercase;
+            &:hover{
+                background: #444;
+            }
+        }
+    }
+    .prompt{
+        margin: 1em 0 0 0.5em;
+    }
+    header{
+        margin: 0 3% .25em;
+        text-align: center;
+    }
+}

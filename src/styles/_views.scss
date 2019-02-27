@@ -1,0 +1,9 @@
+
+#login, #register{
+    form{
+        max-width: 500px;
+        @include mobile{
+            max-width: 300px;
+        }
+    }
+}

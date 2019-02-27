@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { login } from 'actions/auth'
 
 class LoginForm extends Component{
-    state = { show: false }
+    state = { reveal: false }
     handleSubmit = event => {
         event.preventDefault()
         const data = new FormData(event.target)
@@ -14,7 +14,7 @@ class LoginForm extends Component{
         })
     }
     toggleVisibility = () => {
-        this.setState({ show: !this.state.show })
+        this.setState({ reveal: !this.state.reveal })
     }
     render(){
         if(this.props.isLoggedIn){
@@ -22,20 +22,24 @@ class LoginForm extends Component{
         }
         return(
             <form onSubmit={this.handleSubmit}>
+                <header>
+                    <h3>Login</h3>
+                    <p>Authenticate identity</p>
+                </header>
                 <label htmlFor="email">Email</label>
                 <input id="email" name="email" type="email" required/>
 
-                <label htmlFor="password">
-                    Password
-                    <i 
-                        className={this.state.show ? "fas fa-eye" : "fas fa-eye-slash"}
-                        onClick={this.toggleVisibility}
-                    />
-                </label>
-                <input id="password" name="password" type={this.state.show ? "text" : "password"} required/>
-
-                <br/>
-                <input className="button button-outline" type="submit" value="Login"/>
+                <label htmlFor="password">Password</label>
+                <input id="password" name="password" type={this.state.reveal ? "text" : "password"} required/>
+                <div className="hide-show">
+                    <span onClick={this.toggleVisibility}>
+                        {this.state.reveal ? 'Hide' : 'Show'}
+                    </span>
+                </div>
+                <input className="btn" type="submit" value="Login"/>
+                <div className="prompt">
+                    <Link to='/register'>Don't have an account?</Link>
+                </div>
             </form>
         )
     }

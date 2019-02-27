@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { register } from 'actions/user'
 
@@ -19,16 +19,24 @@ class RegisterForm extends Component{
         }
         return(
             <form onSubmit={this.handleSubmit}>
-                <label htmlFor="email">Email:</label>
+                <header>
+                    <h3>Register</h3>
+                    <p>Create a new user</p>
+                </header>
+                <label htmlFor="email">Email</label>
                 <input name="email" id="email" type="email" required/>
 
-                <label htmlFor="password">Password:</label>
+                <label htmlFor="password">Password</label>
                 <input name="password" id="password" type="password" required/>
                 
-                <label htmlFor="confirm">Confirm Password:</label>
+                <label htmlFor="confirm">Confirm Password</label>
                 <input name="confirm" id="confirm" type="password" required/>
 
-                <input type="submit" value="Create Account"/>
+                <input type="submit" className="btn" value="Create Account"/>
+
+                <div className="prompt">
+                    <Link to='/'>Already have an account?</Link>
+                </div>
             </form>
         )
     }
