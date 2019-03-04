@@ -1,9 +1,10 @@
 @import 'theme';
 @import 'mixins';
-@import 'ui/layout';
 @import 'ui/typography';
-@import 'ui/forms';
-@import 'ui/components';
+@import 'ui/elements';
+@import 'ui/layout';
+@import 'ui/navigation';
+@import 'ui/form';
 @import 'views';
 
 *, *:before, *:after{
