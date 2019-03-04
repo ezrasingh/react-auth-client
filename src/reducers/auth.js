@@ -1,11 +1,8 @@
-
-/** NOTE: 
- * This is implemented as an implicit function call
- * to keep state concurrent with sessionStorage 
- * */
-export const defaultState = (() => { 
-    return { isLoggedIn: !!sessionStorage.getItem('token') }
-})()
+export const defaultState = {
+    get isLoggedIn(){
+        return !!sessionStorage.getItem('token')
+    }
+}
 
 const auth = (state = defaultState, action) => {
     switch(action.type){
