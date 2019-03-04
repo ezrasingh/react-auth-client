@@ -1,5 +1,6 @@
 html{
     font-family: 'Roboto', sans-serif;
+    color: $fontColor;
     @include desktop{
         font-size: calc(0.5em + 1vw);
     }
