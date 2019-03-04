@@ -24,7 +24,7 @@ export const login = ({ email, password }) => {
                 if(res.status === 200){
                     const { token } = res.data
                     loginAttempt = 0
-                    dispatch({ type : 'LOGIN', token })
+                    dispatch({ type : 'LOGIN', token, email })
                 }
             })
             .catch((err) => {
