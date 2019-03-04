@@ -4,7 +4,9 @@ import Form from './components/Form'
 const Register = () => {
     return(
         <section id="register" className="view">
-            <Form/>
+            <div className="container">
+                <Form/>
+            </div>
         </section>
     )
 }
