@@ -1,8 +1,35 @@
-
-navbar{
-
+.h-center{
+    margin: 0 auto;
 }
 
-.notification{
-    
+.is-fluid{
+    margin: 0 1em;
+    max-width: none;
+    width: auto;
+    @include mobile{
+        margin: 0;
+    }
+}
+
+.is-sticky{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+.container{
+    @include flexbox;
+    @include flex(1);
+    justify-content: center;
+}
+
+.view{
+    @include flexbox;
+    position: absolute;
+    min-height: 100%;
+    width: 100%;
+}
+
+#avatar img{
+    border: 1px solid #ccc;
 }
