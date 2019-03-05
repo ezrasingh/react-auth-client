@@ -40,11 +40,12 @@ class MenuContainer extends Component{
 const mapStateToProps = state => {
     return { 
         ...state.auth, 
-        avatar: {
-            profileImg: state.user.profile.avatar,
+        profile: {
+            avatar: state.user.profile.avatar,
             name: state.user.profile.name
         }
     }
 }
 
+export { MenuContainer }
 export default connect(mapStateToProps)(MenuContainer)

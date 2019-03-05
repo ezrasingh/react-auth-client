@@ -20,7 +20,7 @@ class Menu extends Component{
         return(
             <div className="container">
                 {this.generateRoutes()}
-                {this.props.isLoggedIn && <Avatar {...this.props.avatar}/>}
+                {this.props.isLoggedIn && <Avatar {...this.props.profile}/>}
             </div>
         )
     }
@@ -52,7 +52,7 @@ class Menu extends Component{
 }
 
 Menu.propTypes = {
-    avatar: PropTypes.object.isRequired,
+    profile: PropTypes.object.isRequired,
     routes: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string.isRequired,
         href: PropTypes.string.isRequired
