@@ -1,6 +1,8 @@
 {
   "name": "auth-client",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "license": "MIT",
+  "engines": { "node": "8.x" },
   "dependencies": {
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
@@ -20,7 +22,14 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "stage": "npm run build && serve -s build",
     "test": "react-scripts test",
+    "coverage": "react-scripts test --env=jsdom --coverage",
+    "deploy" : "git push heroku develop",
+    "patch" : "react-scripts build && npm patch && npm run deploy:git",
+    "feature" : "react-scripts build && npm minor && npm run deploy:git",
+    "release" : "react-scripts build && npm major && npm run deploy:git",
+    "deploy:git" : "git add . && git commit -m 'Version: $npm_package_version' && git push origin master && git checkout develop",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -32,7 +41,19 @@
     "not ie <= 11",
     "not op_mini all"
   ],
+  "jest": {
+    "collectCoverageFrom": [
+      "src/tests/*/*.{js,jsx}"
+    ]
+  },
   "devDependencies": {
-    "redux-devtools-extension": "^2.13.7"
+    "axios-mock-adapter": "^1.16.0",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.9.1",
+    "enzyme-to-json": "^3.3.5",
+    "jest-localstorage-mock": "^2.4.0",
+    "react-test-renderer": "^16.8.1",
+    "redux-devtools-extension": "^2.13.7",
+    "redux-mock-store": "^1.5.3"
   }
 }

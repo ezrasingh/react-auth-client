@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logout } from 'actions/auth'
 import Loader from 'app/components/Loader'
 
 class Logout extends Component{
+    static propTypes = {
+        isLoggedIn: PropTypes.bool.isRequired,
+        logout: PropTypes.func.isRequired
+    }
     componentWillMount(){
         this.props.logout()
     }
@@ -27,4 +32,5 @@ const mapDispatchToProps = dispatch => {
     return { logout : () => dispatch(logout()) }
 }
 
+export { Logout as LogoutComponent }
 export default connect(mapStateToProps, mapDispatchToProps)(Logout)

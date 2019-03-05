@@ -4,6 +4,10 @@ import { connect } from 'react-redux'
 import { register } from 'actions/user'
 
 class RegisterForm extends Component{
+    static propTypes = {
+        redirect: PropTypes.bool.isRequired,
+        register: PropTypes.func.isRequired
+    }
     handleSubmit = (event) => {
         event.preventDefault()
         const data = new FormData(event.target)
@@ -15,7 +19,7 @@ class RegisterForm extends Component{
     }
     render(){
         if(this.props.redirect){
-            return <Redirect exact push to='/'/>
+            return <Redirect exact to='/'/>
         }
         return(
             <form onSubmit={this.handleSubmit}>
@@ -51,4 +55,5 @@ const mapDispatchToProps = dispatch => {
     return { register : (credentials) => dispatch(register(credentials)) }
 }
 
+export { RegisterForm }
 export default connect(mapStateToProps, mapDispatchToProps)(RegisterForm)
