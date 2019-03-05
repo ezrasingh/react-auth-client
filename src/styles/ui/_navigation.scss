@@ -18,29 +18,45 @@ nav.navbar{
     position: fixed;
     top: 0;
     .container{
+        position: absolute;
         height: $navbarHeight;
         width: 60%;
-        a{
-            &#avatar{
-                float: right;
-            }
-            &:not(#avatar){
-                float: left;
-                display: inline-block;
-                height: $navbarHeight;
-                white-space: nowrap;
-            }
-        }
-
         @include mobile{
             display: none;
+        }
+        figure, a{
+            display: inline-flex;
+            align-items: center;
+            margin: 0;
+        }
+        a{
+            cursor: pointer;
+            &#avatar{
+                margin-left: auto; 
+                img{
+                    border: 3px solid $primary;
+                    border-radius: 100%;
+                }
+            }
+            &:not(#avatar){
+                margin: auto 0.75em;
+                height: $navbarHeight;
+                white-space: nowrap;
+                &:hover, &.active{
+                    color: #eee;
+                    border-bottom: 3px solid $accent;
+                    margin-bottom: -1px;
+                }
+            }
         }
         &#mobile{
             overflow-y: auto;
             @include desktop{
+                z-index: -100;
                 display: none;
             }
             @include tablet{
+                z-index: -100;
                 display: none;
             }
             @include mobile{
@@ -68,6 +84,7 @@ nav.navbar{
                     width: 100%;
                     line-height: $navbarHeight;
                     text-align: center;
+                    margin: initial;
                     border-bottom: 2px solid $navbarPrimary;
                     margin-bottom: -2px;
                     cursor: pointer;

@@ -13,8 +13,11 @@
         @include flex(1 1 auto);
         flex-direction: column;
         justify-content: center;
+        hr{
+            max-width: 50%;
+        }
     }
-
+    
     section.content{
         padding: 2em;
         margin: 2em auto;
