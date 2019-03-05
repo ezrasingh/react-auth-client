@@ -1,0 +1,32 @@
+#login, #register{
+    align-items: center;
+}
+
+#profile{
+    flex-flow: column;
+    background: #fcfcfc;
+    nav{
+        @include flex(0 1 auto);
+    }
+
+    .container{
+        @include flex(1 1 auto);
+        flex-direction: column;
+        justify-content: center;
+        hr{
+            max-width: 50%;
+        }
+    }
+    
+    section.content{
+        padding: 2em;
+        margin: 2em auto;
+        max-width: calc(100% - 2em);
+        border: 1px solid #ccc;
+        background: #fff;
+    }
+
+    form{
+        margin: 2em auto;
+    }
+}

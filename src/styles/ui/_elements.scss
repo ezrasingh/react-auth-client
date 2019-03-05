@@ -1,0 +1,106 @@
+$dimensions: 16 24 32 48 64 96 128 !default;
+$footerHeight: 0.5em;
+
+button, .btn{
+    width: 94%;
+    margin: 2em 3% 0;
+    border: 1px solid $accent;
+    background: $accent;
+    color: #fff;
+    padding: 1em 0;
+    font-size: 0.75em;
+    font-weight: 700;
+    clear: both;
+    @include border-radius(5px);
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.1s ease-in;
+    &:focus, &:hover{
+        background: #fff;
+        color: $accent;
+    }
+}
+
+a{
+    text-decoration: none;
+    line-height: 1;
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+    padding: 5px 5px;
+    overflow: hidden;
+    vertical-align: bottom;
+    &:hover{
+        color: $activeLinkColor;
+    }
+    &:visited{
+        text-decoration: none;
+        color: $fontColor;
+    }
+}
+
+img{
+    display: block;
+    height: auto;
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+figure{
+    display: block;
+    position: relative;
+    margin: 1em auto;
+    margin-bottom: 3em;
+    figcaption{
+        padding: 1em 0;
+        text-align: center;
+        font-style: italic;
+        white-space: nowrap;
+    }
+    .is-square{
+        padding-top: 100%;
+    }
+    .is-round{
+        border-radius: 100vh;
+    }
+    // Sizes
+    @each $dimension in $dimensions{
+        &.is-#{$dimension}{
+            height: $dimension * 1px;
+            width: $dimension * 1px;
+        }
+    }
+}
+
+hr{
+    border: none;
+    border-top: 1px solid #ccc;
+    margin-top: -1px;
+    width: 100% - 12%;
+}
+
+footer{
+    $textColor: rgba(#fff, 0.75);
+    clear: both;
+    width: 100%;
+    padding: $footerHeight;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: #ccc;
+    background: $accent;
+    color: $textColor;
+    font-size: 0.8rem;
+    text-align: center;
+    a{
+        color: $textColor !important;
+        text-decoration: underline;
+        vertical-align: middle;
+        &:hover{
+            color: #fff !important;
+        }
+        i{
+            font-size: 1.5em;
+            font-weight: initial;
+        }
+    }
+}

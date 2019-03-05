@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logout } from 'actions/auth'
+import Loader from 'app/components/Loader'
 
 class Logout extends Component{
     static propTypes = {
@@ -10,12 +11,16 @@ class Logout extends Component{
         logout: PropTypes.func.isRequired
     }
     componentWillMount(){
-        this.props.logout() 
+        this.props.logout()
+    }
+
+    shouldComponentUpdate(nextProps){
+        return nextProps.isLoggedIn !== this.props.isLoggedIn
     }
 
     render(){
         const { isLoggedIn } = this.props
-        return isLoggedIn ? <em>Logging out...</em> : <Redirect exact to="/"/>
+        return isLoggedIn ? <Loader/> : <Redirect exact to="/"/>
     }
 }
 

@@ -1,16 +1,40 @@
 @import 'theme';
-@import 'ui/layout';
+@import 'mixins';
 @import 'ui/typography';
-@import 'ui/navbar';
-@import 'views/login';
-@import 'views/register';
-@import 'views/profile';
-@import'views/update';
+@import 'ui/elements';
+@import 'ui/layout';
+@import 'ui/navigation';
+@import 'ui/form';
+@import 'views';
 
-body{
-  font-family: 'Cabin', serif;
+*, *:before, *:after{
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
-*, *:before, *:after {
-  box-sizing: inherit;
+html, body, #root{
+  height: 100%;
+  @mixin mobile {
+    max-width: $mobile-width;
+  }
+  @mixin tablet{
+    max-width: $tablet-width;
+  }
+  @mixin desktop{
+    max-width: $desktop-width;
+  }
+}
+
+body{
+  background: $primary;
+}
+
+#root{
+  @include flexbox;
+  @include flex(center);
+  @include justify(center);
+  @include box-pack(center);
+  -webkit-align-items: center;
+  align-items: center;
 }

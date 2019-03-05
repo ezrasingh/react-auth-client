@@ -1,19 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import Form from './components/Form'
 
-/** Login portal */
 const Login = () => {
     return(
-        <div className="login overlay flex h-center v-center">
-            <div className="form box animated fadeInUp">
-                <h2>Login</h2>
+        <section id="login" className="view">
+            <div className="container">
                 <Form/>
-                <Link to='/register'>
-                    Don't have an account?
-                </Link>
             </div>
-        </div>
+        </section>
     )
 }
 

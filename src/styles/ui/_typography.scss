@@ -1,21 +1,66 @@
-// iOS inspired typography guidelines
+// Based on Robert Bringhurst, The Elements of Typographic Style
 
-h1, h2, h3, h4{
-    letter-spacing: 1px;
+html{
+    font-family: 'Roboto', sans-serif;
+    color: $fontColor;
+    @include desktop{
+        font-size: calc(0.5em + 1vw);
+    }
+    @include tablet{
+        font-size: calc(1em + 1vw);
+    }
 }
 
-h4, .is-xs{
-    font-size: 10pt;
+body{
+    font-size: 1em;
+    line-height: 1.375em;
+    @include tablet{
+        line-height: 1.25em;
+    }
 }
 
-h3, .is-sm{
-    font-size: 13pt;
+h1{ 
+    font-size: 3em;
+    line-height: 1.05em;
+    @include tablet{
+        font-size: 2.5em;
+        line-height: 1.25em;
+    }
+    @include mobile{
+        font-size: 2em;
+    }
 }
 
-h2, .is-md{
-    font-size: 15pt;
+h2{ 
+    font-size: 2.25em;
+    line-height: 1.25em;
+    @include tablet{
+        font-size: 2em;
+    }
+    @include mobile{
+        font-size: 1.375em;
+        line-height: 25em/22;
+    }
 }
 
-h1, .is-lg{
-    font-size: 17pt;
+h3{
+    font-size: 1.75em;
+    line-height: 1.25em;
+    @include tablet{
+        font-size: 1.5em;
+    }
+    @include mobile{
+        font-size: 1.375em;
+        line-height: 25em/22;
+    }
+}
+
+button, .btn{
+    font-family: inherit;
+    font-size: inherit;
+}
+
+input{
+    font-family: inherit; 
+    font-size: inherit;
 }

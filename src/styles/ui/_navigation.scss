@@ -1,0 +1,137 @@
+$navbarHeight: 4em;
+
+nav{
+    @include flexbox;
+    @include flex(1);
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%; 
+    @include noselect;
+    height: $navbarHeight;
+}
+
+nav.navbar{
+    background: $navbarPrimary;
+    position: fixed;
+    top: 0;
+    .container{
+        position: absolute;
+        height: $navbarHeight;
+        width: 60%;
+        @include mobile{
+            display: none;
+        }
+        figure, a{
+            display: inline-flex;
+            align-items: center;
+            margin: 0;
+        }
+        a{
+            cursor: pointer;
+            &#avatar{
+                margin-left: auto; 
+                img{
+                    border: 3px solid $primary;
+                    border-radius: 100%;
+                }
+            }
+            &:not(#avatar){
+                margin: auto 0.75em;
+                height: $navbarHeight;
+                white-space: nowrap;
+                &:hover, &.active{
+                    color: #eee;
+                    border-bottom: 3px solid $accent;
+                    margin-bottom: -1px;
+                }
+            }
+        }
+        &#mobile{
+            overflow-y: auto;
+            @include desktop{
+                z-index: -100;
+                display: none !important;
+            }
+            @include tablet{
+                z-index: -100;
+                display: none !important;
+            }
+            @include mobile{
+                @include flexbox;
+            }
+            &.container{
+                @include flexbox;
+                justify-content: center;
+                align-items: center;
+            }
+            .menu{
+                z-index: 150;
+                @include flexbox;
+                flex-direction: column;
+                position: fixed;
+                left: 0;
+                top: $navbarHeight;
+                width: 100%;
+                border-top: 2px solid $navbarPrimary;
+                margin-top: -2px; 
+                a{
+                    color: lighten($fontColor, 25);
+                    background: $navbarSecondary;
+                    display: block;
+                    width: 100%;
+                    line-height: $navbarHeight;
+                    text-align: center;
+                    margin: initial;
+                    border-bottom: 2px solid $navbarPrimary;
+                    margin-bottom: -2px;
+                    cursor: pointer;
+                    &:last-child{
+                        border-bottom-color: $navbarPrimary;
+                        border-bottom-width: 0.6em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.navbar-container{
+    position: absolute;
+    top: $navbarHeight;
+    height: 100%;
+    width: 100%;
+}
+
+nav.menu{
+    z-index: 50;
+    overflow-x: auto;
+    background: $navbarPrimaryLight;
+    margin-bottom: -1px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: $navbarSecondaryLight;
+    ul{
+        padding: 0;
+        li{
+            display: inline-block;
+            a{
+                @include flexbox;
+                justify-content: center;
+                align-items: center;
+                vertical-align: top;
+                padding: 0.5em 1em;
+                margin-bottom: -1px;
+                border-bottom-width: 1px;
+                border-bottom-style: solid;
+                &.is-active{
+                    color: $activeLinkColor;
+                    border-bottom-width: 2px;
+                    border-bottom-color: $activeLinkColor;
+                }
+            }
+        }
+    }
+}
