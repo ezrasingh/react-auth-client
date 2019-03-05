@@ -1,9 +1,9 @@
 import { default as dispatch, defaultState } from 'reducers/user'
 
 describe('user reducer', () => {
-    const user = { email: 'tester@user.com', profile: { name: 'John Doe' } }
+    const user = { email: 'tester@user.com', profile: { avatar: null, name: 'John Doe' } }
     describe('user creation', () => {
-        it('should flag email with false for ternary logic', () => {
+        it('should toggle email from null to false for ternary logic', () => {
             expect(defaultState.email).toBe(null)
             const { email } = dispatch(null, { type: "USER_CREATED" })
             expect(email).toBe(false)
@@ -17,9 +17,16 @@ describe('user reducer', () => {
     })
     describe('profile update', () => {
         it('should update the profile state', () => {
-            expect(defaultState.profile).toEqual({})
+            expect(defaultState.profile).toEqual({ avatar: null, name: "" })
             const { profile } = dispatch(null, { type: "PROFILE_UPDATED", profile: user.profile })
             expect(profile).toEqual(user.profile)
+        })
+    })
+    describe('user login', () => {
+        it('should update the email state', () => {
+            expect(defaultState.email).toBe(null)
+            const { email } = dispatch(null, { type: "LOGIN", email: user.email })
+            expect(email).toEqual(user.email)
         })
     })
 })
