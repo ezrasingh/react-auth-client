@@ -19,20 +19,12 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": <div
-        className="form box animated fadeInUp"
+        className="container"
       >
-        <h2>
-          Login
-        </h2>
         <Connect(LoginForm) />
-        <Link
-          replace={false}
-          to="/register"
-        >
-          Don't have an account?
-        </Link>
       </div>,
-      "className": "login overlay flex h-center v-center",
+      "className": "view",
+      "id": "login",
     },
     "ref": null,
     "rendered": Object {
@@ -40,59 +32,22 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": Array [
-          <h2>
-            Login
-          </h2>,
-          <Connect(LoginForm) />,
-          <Link
-            replace={false}
-            to="/register"
-          >
-            Don't have an account?
-          </Link>,
-        ],
-        "className": "form box animated fadeInUp",
+        "children": <Connect(LoginForm) />,
+        "className": "container",
       },
       "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Login",
-          },
-          "ref": null,
-          "rendered": "Login",
-          "type": "h2",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "children": "Don't have an account?",
-            "replace": false,
-            "to": "/register",
-          },
-          "ref": null,
-          "rendered": "Don't have an account?",
-          "type": [Function],
-        },
-      ],
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
       "type": "div",
     },
-    "type": "div",
+    "type": "section",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
@@ -101,20 +56,12 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": <div
-          className="form box animated fadeInUp"
+          className="container"
         >
-          <h2>
-            Login
-          </h2>
           <Connect(LoginForm) />
-          <Link
-            replace={false}
-            to="/register"
-          >
-            Don't have an account?
-          </Link>
         </div>,
-        "className": "login overlay flex h-center v-center",
+        "className": "view",
+        "id": "login",
       },
       "ref": null,
       "rendered": Object {
@@ -122,59 +69,22 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": Array [
-            <h2>
-              Login
-            </h2>,
-            <Connect(LoginForm) />,
-            <Link
-              replace={false}
-              to="/register"
-            >
-              Don't have an account?
-            </Link>,
-          ],
-          "className": "form box animated fadeInUp",
+          "children": <Connect(LoginForm) />,
+          "className": "container",
         },
         "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Login",
-            },
-            "ref": null,
-            "rendered": "Login",
-            "type": "h2",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {},
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "children": "Don't have an account?",
-              "replace": false,
-              "to": "/register",
-            },
-            "ref": null,
-            "rendered": "Don't have an account?",
-            "type": [Function],
-          },
-        ],
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
         "type": "div",
       },
-      "type": "div",
+      "type": "section",
     },
   ],
   Symbol(enzyme.__options__): Object {

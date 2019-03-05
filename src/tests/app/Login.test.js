@@ -1,6 +1,6 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
-import LoginView from 'app/Login'
+import { default as LoginView } from 'app/Login'
 import { LoginForm } from 'app/Login/components/Form'
 import { shallow } from 'enzyme'
 
@@ -12,13 +12,13 @@ describe('login view', () => {
         })
     })
     describe('<LoginForm />', () => {
-        const props = { isLoggedIn: false, login: jest.fn() }
+        const props = { redirect: false, login: jest.fn() }
         const event = { preventDefault: jest.fn() }
         beforeEach(() => {
-            props.isLoggedIn = false
+            props.redirect = false
         })
         it('should redirect if user is authenticated', () => {
-            props.isLoggedIn = true
+            props.redirect = true
             const component = shallow(<LoginForm {...props}/>)
             expect(component.equals(<Redirect to="/profile"/>)).toBe(true)
         })
@@ -30,7 +30,7 @@ describe('login view', () => {
         it('should toggle password form visibility', () => {
             const component = shallow(<LoginForm {...props} />)
             const input = () => component.find('#password')
-            const toggle = component.find('i.fas') 
+            const toggle = component.find('div.hide-show span') 
             expect(input().props().type).toBe('password')
             toggle.simulate('click')
             expect(input().props().type).toBe('text')
