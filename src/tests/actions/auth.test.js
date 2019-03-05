@@ -20,7 +20,7 @@ describe('auth actions', () => {
             mockApi.onPost('/authenticate').reply(200, { token })
             store.dispatch(login(user))
             expect(await getAction(store, "LOGIN_ATTEMPT")).toEqual({ type: "LOGIN_ATTEMPT" })
-            expect(await getAction(store, "LOGIN")).toEqual({ type: "LOGIN", token })
+            expect(await getAction(store, "LOGIN")).toEqual({ type: "LOGIN", token, email: user.email })
         })
         it('should deflect auth when server denies access', async () => {
             mockApi.onPost('/authenticate').reply(400)
