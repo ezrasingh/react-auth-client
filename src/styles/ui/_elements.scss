@@ -60,6 +60,9 @@ figure{
     .is-square{
         padding-top: 100%;
     }
+    .is-round{
+        border-radius: 100vh;
+    }
     // Sizes
     @each $dimension in $dimensions{
         &.is-#{$dimension}{
