@@ -53,11 +53,11 @@ nav.navbar{
             overflow-y: auto;
             @include desktop{
                 z-index: -100;
-                display: none;
+                display: none !important;
             }
             @include tablet{
                 z-index: -100;
-                display: none;
+                display: none !important;
             }
             @include mobile{
                 @include flexbox;

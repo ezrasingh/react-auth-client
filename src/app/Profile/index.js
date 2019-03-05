@@ -30,11 +30,11 @@ const Profile = ({ match }) => {
     )
 }
 
-View.propTypes = { action: PropTypes.string.isRequired }
+View.propTypes = { action: PropTypes.string }
 
 Profile.propTypes = {
     match: PropTypes.shape({
-        url: PropTypes.string.isRequired
+        params: PropTypes.object.isRequired
     }).isRequired
 }
 
