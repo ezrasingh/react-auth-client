@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Redirect, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { login } from 'actions/auth'
 
 class LoginForm extends Component{
     state = { reveal: false }
+    static propTypes = { 
+        redirect: PropTypes.bool.isRequired,
+        login: PropTypes.func.isRequired
+    }
     handleSubmit = event => {
         event.preventDefault()
         const data = new FormData(event.target)
@@ -17,7 +22,7 @@ class LoginForm extends Component{
         this.setState({ reveal: !this.state.reveal })
     }
     render(){
-        if(this.props.isLoggedIn){
+        if(this.props.redirect){
             return <Redirect to='/profile'/>
         }
         return(
@@ -46,7 +51,7 @@ class LoginForm extends Component{
 }
 
 const mapStateToProps = state => {
-    return { ...state.auth }
+    return { redirect: state.auth.isLoggedIn }
 }
 
 const mapDispatchToProps = dispatch => {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Redirect, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { register } from 'actions/user'
