@@ -33,7 +33,6 @@ class Menu extends Component{
                     onClick={this.toggleMenu.bind(this)}
                     className={toggleIcon}
                 />
-                {}
                 <div className="menu">
                     {showMenu && this.generateRoutes()}
                 </div>
@@ -41,7 +40,7 @@ class Menu extends Component{
         )
     }
     render(){
-        /** Toggles z-index to slide behind content when showMenu is false and overlay for the latter case */
+        /** Toggles z-index to slide behind content when showMenu is false and overlay menu is active **/
         const smartHideStyle = { zIndex: this.state.showMenu ? 100 : 0 } 
         return(
             <nav style={smartHideStyle} className="navbar">
