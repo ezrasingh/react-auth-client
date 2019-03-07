@@ -1,6 +1,6 @@
 {
   "name": "auth-client",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "license": "MIT",
   "engines": {
     "node": "8.x"
@@ -27,7 +27,7 @@
     "stage": "npm run build && serve -s build",
     "test": "react-scripts test",
     "coverage": "react-scripts test --coverage",
-    "deploy": "git push heroku develop:master",
+    "deploy": "git push -f heroku develop:master",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
