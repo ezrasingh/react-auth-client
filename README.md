@@ -2,8 +2,6 @@
 
 This project is designed to be a frontend *Identity Access Management* (IAM) solution focused around **token based** authentication and authorization. For more details checkout [flask-auth](https://github.com/EzraSingh/flask-auth). The goal of this app is to securely provide access to protected user resources over a REST API.
 
-[![preview](https://cdn.pbrd.co/images/I0RHix3.png)](https://auth-client-cosmos.herokuapp.com/)
-
 ### Views
 
 - */* - Login portal
