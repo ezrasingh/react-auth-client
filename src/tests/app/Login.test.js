@@ -25,6 +25,7 @@ describe('login view', () => {
         it('should submit login request on submit', () => {
             const component = shallow(<LoginForm {...props}/>)
             component.find('form').simulate('submit', event)
+            expect(event.preventDefault).toHaveBeenCalledTimes(1)
             expect(props.login).toHaveBeenCalledTimes(1)
         })
         it('should toggle password form visibility', () => {
