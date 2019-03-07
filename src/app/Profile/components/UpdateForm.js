@@ -5,7 +5,7 @@ const UpdateForm = ({ name, handleSubmit }) => {
     return(
         <form onSubmit={handleSubmit}>
             <label htmlFor="name">Name</label>
-            <input id="name" name="name" placeholder={name}/>
+            <input id="name" name="name" placeholder={name || ''}/>
 
             <input type="submit" className="btn" value="Save"/>
         </form>

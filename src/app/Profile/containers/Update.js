@@ -40,4 +40,5 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
+export { Update as UpdateView }
 export default connect(mapStateToProps, mapDispatchToProps)(Update)

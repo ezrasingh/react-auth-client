@@ -38,4 +38,5 @@ Profile.propTypes = {
     }).isRequired
 }
 
+export { Profile, View }
 export default withNav(Profile)

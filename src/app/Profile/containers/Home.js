@@ -34,4 +34,5 @@ const mapDispatchToProps = dispatch => {
     return { loadProfile: () => dispatch(profile()) }
 }
 
+export { Home as HomeView }
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
