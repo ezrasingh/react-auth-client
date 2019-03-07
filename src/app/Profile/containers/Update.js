@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { update } from 'actions/user'
@@ -6,6 +7,10 @@ import UpdateForm from '../components/UpdateForm'
 
 class Update extends Component{
     state = { redirect: false }
+    static propTypes = {
+        name: PropTypes.string.isRequired,
+        update: PropTypes.func.isRequired
+    }
     handleSubmit = event => {
         event.preventDefault()
         const data = new FormData(event.target)

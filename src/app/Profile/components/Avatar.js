@@ -14,7 +14,7 @@ const Avatar = ({ profile }) =>{
 
 Avatar.propTypes = {
     profile: PropTypes.shape({
-        name: PropTypes.string,
+        name: PropTypes.string.isRequired,
         avatar: PropTypes.string
     }).isRequired
 }
