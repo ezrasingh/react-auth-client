@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const UpdateForm = ({ name, handleSubmit }) => {
     return(
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="animated fadeInUp faster">
             <label htmlFor="name">Name</label>
             <input id="name" name="name" placeholder={name || ''}/>
 

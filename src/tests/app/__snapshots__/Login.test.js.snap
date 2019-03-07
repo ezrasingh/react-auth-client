@@ -19,7 +19,7 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": <div
-        className="container"
+        className="container animated fadeIn"
       >
         <Connect(LoginForm) />
       </div>,
@@ -33,7 +33,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": <Connect(LoginForm) />,
-        "className": "container",
+        "className": "container animated fadeIn",
       },
       "ref": null,
       "rendered": Object {
@@ -56,7 +56,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": <div
-          className="container"
+          className="container animated fadeIn"
         >
           <Connect(LoginForm) />
         </div>,
@@ -70,7 +70,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": <Connect(LoginForm) />,
-          "className": "container",
+          "className": "container animated fadeIn",
         },
         "ref": null,
         "rendered": Object {

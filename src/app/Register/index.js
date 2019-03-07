@@ -4,7 +4,7 @@ import Form from './components/Form'
 const Register = () => {
     return(
         <section id="register" className="view">
-            <div className="container">
+            <div className="container animated fadeIn">
                 <Form/>
             </div>
         </section>
