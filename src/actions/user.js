@@ -1,8 +1,10 @@
 import api from 'api'
+import { toast } from 'react-toastify'
 
 export const register = ({ email, password, confirm }) => {
     return dispatch => {
         if(password !== confirm){
+            toast.error('Passwords do not match.')
             dispatch({ type : 'PASSWORD_CONFIRMATION_FAILED' })
         }
         else{
@@ -11,11 +13,14 @@ export const register = ({ email, password, confirm }) => {
             .then((res) => {
                 const { message } = res.data
                 if(res.status === 200){
+                    toast.success('Account registered!')
+                    toast('Please sign in.')
                     dispatch({ type : 'USER_CREATED', message })
                 }
             })
             .catch((err) => {
                 const { message } = err.response.data
+                toast.error(message)
                 dispatch({ type: 'REGISTRATION_FAILED', message })
             })
         }
@@ -31,6 +36,7 @@ export const profile = () => {
             dispatch({ type : 'USER_PROFILE', user : { email, profile } })
         })
         .catch((err) => {
+            toast.warn('Login required.')
             dispatch({ type: 'LOGIN_REQUIRED' })
         })
     }
@@ -42,6 +48,7 @@ export const update = ({ name }) => {
         api.put('/user', { name })
         .then((res) => {
             const { message } = res.data
+            toast('Profile updated.')
             dispatch({ 
                 type: 'PROFILE_UPDATED', 
                 message, 
@@ -49,6 +56,7 @@ export const update = ({ name }) => {
             })
         })
         .catch((err) => {
+            toast.warn('Login required.')
             dispatch({ type: 'LOGIN_REQUIRED' })
         })
     }
