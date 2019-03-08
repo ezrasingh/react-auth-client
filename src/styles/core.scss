@@ -6,6 +6,8 @@
 @import 'ui/navigation';
 @import 'ui/form';
 @import 'views';
+// Plugins
+@import 'react-toastify/scss/main.scss';
 
 *, *:before, *:after{
   -moz-box-sizing: border-box; 
@@ -13,7 +15,7 @@
   box-sizing: border-box;
 }
 
-html, body, #root{
+html, body, #app-root{
   height: 100%;
   @mixin mobile {
     max-width: $mobile-width;
@@ -30,7 +32,7 @@ body{
   background: $primary;
 }
 
-#root{
+#app-root{
   @include flexbox;
   @include flex(center);
   @include justify(center);

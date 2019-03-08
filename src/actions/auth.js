@@ -1,4 +1,5 @@
 import api from 'api'
+import { toast } from 'react-toastify'
 
 let loginAttempt = 0
 
@@ -15,6 +16,7 @@ export const login = ({ email, password }) => {
     loginAttempt++
     return dispatch => {
         if(loginAttempt > process.env.REACT_APP_MAX_LOGIN_ATTEMPTS){
+            toast.warn('Too many login attempts.')
             dispatch({ type : 'LOGIN_TIMEOUT' })
         }
         else{
@@ -24,10 +26,12 @@ export const login = ({ email, password }) => {
                 if(res.status === 200){
                     const { token } = res.data
                     loginAttempt = 0
+                    toast.success('Login successful, welcome!')
                     dispatch({ type : 'LOGIN', token, email })
                 }
             })
             .catch((err) => {
+                toast.error('Login failed.')
                 dispatch({ type : 'LOGIN_FAILURE' })
             })
         }
@@ -37,6 +41,7 @@ export const login = ({ email, password }) => {
 export const logout = () => { 
     return dispatch => {
         dispatch({ type : 'LOGOUT' })
+        toast('Thank you come again.')
         dispatch({ type : 'RESET_APP' })
     }
  }
