@@ -23,7 +23,7 @@ export const login = ({ email, password }) => {
             dispatch({ type : 'LOGIN_ATTEMPT' })
             api.post('/authenticate', { email, password })
             .then((res) => {
-                if(res.status === 200){
+                if(res.status === 200 && res.data.token){
                     const { token } = res.data
                     loginAttempt = 0
                     toast.success('Login successful, welcome!')
