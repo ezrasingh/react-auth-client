@@ -26,7 +26,6 @@ export const login = ({ email, password }) => {
                 if(res.status === 200 && res.data.token){
                     const { token } = res.data
                     loginAttempt = 0
-                    toast.success('Login successful, welcome!')
                     dispatch({ type : 'LOGIN', token, email })
                 }
             })

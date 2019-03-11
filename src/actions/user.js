@@ -14,7 +14,6 @@ export const register = ({ email, password, confirm }) => {
                 const { message } = res.data
                 if(res.status === 200){
                     toast.success('Account registered!')
-                    toast('Please sign in.')
                     dispatch({ type : 'USER_CREATED', message })
                 }
             })

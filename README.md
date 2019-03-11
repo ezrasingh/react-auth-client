@@ -18,7 +18,7 @@ Install application dependencies:
 
 `npm install`
 
-Run test, preferred for **test-driven** development:
+Run test:
 
 `npm test`
 
