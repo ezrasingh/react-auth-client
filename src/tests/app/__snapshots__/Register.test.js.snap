@@ -21,7 +21,7 @@ ShallowWrapper {
       "children": <div
         className="container animated fadeIn"
       >
-        <Connect(RegisterForm) />
+        <Connect(RegistrationFormContainer) />
       </div>,
       "className": "view",
       "id": "register",
@@ -32,7 +32,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": <Connect(RegisterForm) />,
+        "children": <Connect(RegistrationFormContainer) />,
         "className": "container animated fadeIn",
       },
       "ref": null,
@@ -58,7 +58,7 @@ ShallowWrapper {
         "children": <div
           className="container animated fadeIn"
         >
-          <Connect(RegisterForm) />
+          <Connect(RegistrationFormContainer) />
         </div>,
         "className": "view",
         "id": "register",
@@ -69,7 +69,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <Connect(RegisterForm) />,
+          "children": <Connect(RegistrationFormContainer) />,
           "className": "container animated fadeIn",
         },
         "ref": null,

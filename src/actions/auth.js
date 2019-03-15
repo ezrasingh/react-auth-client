@@ -21,7 +21,7 @@ export const login = ({ email, password }) => {
         }
         else{
             dispatch({ type : 'LOGIN_ATTEMPT' })
-            api.post('/authenticate', { email, password })
+            api.post('/auth', { email, password })
             .then((res) => {
                 if(res.status === 200 && res.data.token){
                     const { token } = res.data
@@ -30,7 +30,8 @@ export const login = ({ email, password }) => {
                 }
             })
             .catch((err) => {
-                toast.error('Login failed.')
+                const { message } = err.response.data
+                toast.error(message || "Login failed.")
                 dispatch({ type : 'LOGIN_FAILURE' })
             })
         }

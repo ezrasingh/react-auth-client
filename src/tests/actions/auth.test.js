@@ -17,13 +17,13 @@ describe('auth actions', () => {
     describe('login', () => {
         it('should handle auth and init an auth token', async () => {
             const token = 'mock-token'
-            mockApi.onPost('/authenticate').reply(200, { token })
+            mockApi.onPost('/auth').reply(200, { token, message: 'TEST_SERVER_MSG' })
             store.dispatch(login(user))
             expect(await getAction(store, "LOGIN_ATTEMPT")).toEqual({ type: "LOGIN_ATTEMPT" })
             expect(await getAction(store, "LOGIN")).toEqual({ type: "LOGIN", token, email: user.email })
         })
         it('should deflect auth when server denies access', async () => {
-            mockApi.onPost('/authenticate').reply(400)
+            mockApi.onPost('/auth').reply(400, { message: 'TEST_ERR_MSG' })
             store.dispatch(login(user))
             expect(await getAction(store, "LOGIN_ATTEMPT")).toEqual({ type: "LOGIN_ATTEMPT" })
             expect(await getAction(store, "LOGIN_FAILURE")).toEqual({ type: "LOGIN_FAILURE" })

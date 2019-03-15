@@ -1,11 +1,11 @@
 import React from 'react'
-import Form from './components/Form'
+import LoginFormContainer from './containers/LoginFormContainer'
 
 const Login = () => {
     return(
         <section id="login" className="view">
             <div className="container animated fadeIn">
-                <Form/>
+                <LoginFormContainer/>
             </div>
         </section>
     )

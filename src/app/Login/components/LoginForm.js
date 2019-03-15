@@ -1,32 +1,18 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Redirect, Link } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { login } from 'actions/auth'
+import { Link } from 'react-router-dom'
 
 class LoginForm extends Component{
     state = { reveal: false }
     static propTypes = { 
-        redirect: PropTypes.bool.isRequired,
-        login: PropTypes.func.isRequired
-    }
-    handleSubmit = event => {
-        event.preventDefault()
-        const data = new FormData(event.target)
-        this.props.login({ 
-            email : data.get('email'),
-            password : data.get('password')
-        })
+        handleSubmit: PropTypes.func.isRequired
     }
     toggleVisibility = () => {
         this.setState({ reveal: !this.state.reveal })
     }
     render(){
-        if(this.props.redirect){
-            return <Redirect to='/profile'/>
-        }
         return(
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.props.handleSubmit}>
                 <header>
                     <h3>Login</h3>
                     <p>Authenticate identity</p>
@@ -43,20 +29,13 @@ class LoginForm extends Component{
                 </div>
                 <input className="btn" type="submit" value="Login"/>
                 <div className="prompt">
-                    <Link to='/register'>Don't have an account?</Link>
+                    <Link className="link" to='/register'>Don't have an account?</Link>
+                    <br/>
+                    <Link className="link" to='/recover'>Forgot password?</Link>
                 </div>
             </form>
         )
     }
 }
 
-const mapStateToProps = state => {
-    return { redirect: state.auth.isLoggedIn }
-}
-
-const mapDispatchToProps = dispatch => {
-    return { login: credentials => dispatch(login(credentials)) }
-}
-
-export { LoginForm }
-export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)
+export default LoginForm
