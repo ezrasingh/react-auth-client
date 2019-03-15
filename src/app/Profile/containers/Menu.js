@@ -4,7 +4,7 @@ import Tabs from '../components/Tabs'
 class Menu extends Component{
     static items = [ 
         { name: 'Home', href: '/profile/home' },
-        { name: 'Edit', href: '/profile/update' }
+        { name: 'Profile', href: '/profile/update' }
     ]
 
     render(){
