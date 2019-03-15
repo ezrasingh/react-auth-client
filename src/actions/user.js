@@ -1,7 +1,7 @@
 import api from 'api'
 import { toast } from 'react-toastify'
 
-export const register = ({ email, password, confirm }) => {
+export const register = ({ email, name, password, confirm }) => {
     return dispatch => {
         if(password !== confirm){
             toast.error('Passwords do not match.')
@@ -9,17 +9,20 @@ export const register = ({ email, password, confirm }) => {
         }
         else{
             dispatch({ type : 'REGISTERING_USER' })
-            api.post('/user', { email, password, confirm })
+            api.post('/user', { email, name, password, confirm })
             .then((res) => {
                 const { message } = res.data
                 if(res.status === 200){
-                    toast.success('Account registered!')
+                    toast.success(`Confirmation email sent to ${email}.`)
                     dispatch({ type : 'USER_CREATED', message })
                 }
             })
             .catch((err) => {
                 const { message } = err.response.data
-                toast.error(message)
+                if(err.response.status === 401){
+                    toast.warn("A user with that email already has an account.")  
+                }
+                else{ toast.error(message) }
                 dispatch({ type: 'REGISTRATION_FAILED', message })
             })
         }
