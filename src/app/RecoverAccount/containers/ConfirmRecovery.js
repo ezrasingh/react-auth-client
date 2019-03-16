@@ -21,7 +21,9 @@ class ConfirmRecovery extends Component{
         }
         api.post("/validate/recovery", payload)
         .then((res) => {
+            const { message } = res.data
             if(res.status === 200){
+                toast.success(message || "Password was reset")
                 this.setState({ confirmed: true })
             }
         })
