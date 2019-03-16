@@ -1,18 +1,12 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { profile } from 'actions/user'
 import Avatar from '../components/Avatar'
 import Content from '../components/Content'
+import { withUser } from 'utils/user'
 
 class Home extends Component{
     static propTypes = {
-        user: PropTypes.object.isRequired,
-        loadProfile: PropTypes.func.isRequired
-    }
-
-    componentDidMount(){
-        this.props.loadProfile()
+        user: PropTypes.object.isRequired
     }
 
     render(){
@@ -26,13 +20,5 @@ class Home extends Component{
     }
 }
 
-const mapStateToProps = state => {
-    return { user: state.user }
-}
-
-const mapDispatchToProps = dispatch => {
-    return { loadProfile: () => dispatch(profile()) }
-}
-
 export { Home as HomeView }
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default withUser(Home)
