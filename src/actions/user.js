@@ -44,13 +44,13 @@ export const profile = () => {
     }
 }
 
-export const update = ({ name }) => {
+export const updateProfile = ({ name }) => {
     return dispatch => {
         dispatch({ type: 'UPDATING_PROFILE' })
         api.put('/user', { name })
         .then((res) => {
             const { message } = res.data
-            toast('Profile updated.')
+            toast.success(message || "Profile updated.")
             dispatch({ 
                 type: 'PROFILE_UPDATED', 
                 message, 
@@ -60,6 +60,49 @@ export const update = ({ name }) => {
         .catch((err) => {
             toast.warn('Login required.')
             dispatch({ type: 'LOGIN_REQUIRED' })
+        })
+    }
+}
+
+export const updateEmail = ({ new_email, password }) => {
+    return dispatch => {
+        dispatch({ type: 'UPDATING_EMAIL' })
+        api.patch("/user", { new_email, password })
+        .then((res) => {
+            const { message } = res.data
+            if(res.status === 200){
+                toast.success(message || "Email updated.")
+                dispatch({ type: 'EMAIL_UPDATED', new_email })
+            }
+        })
+        .catch((err) => {
+            const { message } = err.response.data
+            if(err.response.status === 401){
+                toast.warn(message || "User with that email already exists.")
+            }
+            else{
+                console.error(err)
+                toast.error("Server could not process update")
+            }
+            dispatch({ type: 'UPDATE_EMAIL_FAILED' })
+        })
+    }
+}
+
+export const deactivateAccount = ({ password }) => {
+    return dispatch => {
+        dispatch({  type: 'DEACTIVATING_USER'})
+        api.delete("/user", { data: { password } })
+        .then((res) => {
+            toast("Account was deactivated")
+            toast.info("Log back in to reactivate account")
+            dispatch({ type: 'USER_DEACTIVATED' })
+            dispatch({ type: 'LOGOUT' })
+            dispatch({ type: 'RESET_APP' })
+        })
+        .catch((err) => {
+            toast.error("Could not deactivate account")
+            dispatch({ type: 'USER_DEACTIVATION_FAILED' })
         })
     }
 }

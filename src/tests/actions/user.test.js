@@ -28,7 +28,6 @@ describe('user actions', () => {
         })
         it('should deny registration on server errors', async () => {
             mockApi.onPost('/user').reply(500, { message: '' })
-            const expectedActions = [ { type: "REGISTERING_USER" }, { type: "REGISTRATION_FAILED", message: '' } ]
             store.dispatch(register({ ...user, confirm: user.password }))
             expect(await getAction(store, "REGISTERING_USER")).toEqual({ type: "REGISTERING_USER" })
             expect(await getAction(store, "REGISTRATION_FAILED")).toEqual({ type: "REGISTRATION_FAILED", message: '' })

@@ -3,7 +3,7 @@ import MockAdapter from 'axios-mock-adapter'
 import getAction from 'tests/utils/getAction'
 import thunk from 'redux-thunk'
 import api from 'api'
-import { login, logout } from 'actions/auth'
+import { login, logout, deleteAccount } from 'actions/auth'
 
 const mockApi = new MockAdapter(api)
 const mockStore = configureMockStore([ thunk ])
@@ -34,6 +34,23 @@ describe('auth actions', () => {
             const expectedActions = [ { type: "LOGOUT" }, { type: "RESET_APP" } ]
             store.dispatch(logout())
             expect(store.getActions()).toEqual(expectedActions)
+        })
+    })
+    describe('deleteAccount', () => {
+        const password = 'mcok-password'
+        it('should handle account deletion with the api', async () => {
+            mockApi.onDelete('/auth').reply(200, { message : 'MOCK-SERVER-MSG'})
+            store.dispatch(deleteAccount({ password }))
+            expect(await getAction(store, "DELETING_ACCOUNT")).toEqual({ type: 'DELETING_ACCOUNT' })
+            expect(await getAction(store, "ACCOUNT_DELETED")).toEqual({ type: 'ACCOUNT_DELETED' })
+            expect(await getAction(store, "LOGOUT")).toEqual({ type: 'LOGOUT' })
+            expect(await getAction(store, "RESET_APP")).toEqual({ type: 'RESET_APP' })
+        })
+        it('should handle api errors', async () => {
+            mockApi.onDelete('/auth').reply(400)
+            store.dispatch(deleteAccount({ password }))
+            expect(await getAction(store, "DELETING_ACCOUNT")).toEqual({ type: 'DELETING_ACCOUNT' })
+            expect(await getAction(store, "ACCOUNT_DELETION_FAILED")).toEqual({ type: "ACCOUNT_DELETION_FAILED" })
         })
     })
 })

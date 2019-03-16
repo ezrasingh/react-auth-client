@@ -44,4 +44,48 @@ export const logout = () => {
         toast('Thank you come again.')
         dispatch({ type : 'RESET_APP' })
     }
- }
+}
+
+export const updatePassword = ({ new_password, confirm, password }) => {
+    return dispatch => {
+        dispatch({ type: 'UPDATING_PASSWORD' })
+        api.put("/auth", { new_password, confirm, password })
+        .then((res) => {
+            const { message } = res.data
+            toast.success(message || "Password updated.")
+            dispatch({ type: 'PASSWORD_UPDATED' })
+        })
+        .catch((err) => {
+            const { message } = err.response.data
+            if(err.response.status === 401){
+                toast.warn(message || "Either user already exist or form is invalid")
+            }
+            else{
+                console.error(err)
+                toast.error("Server could not process update")
+            }
+            dispatch({ type: 'UPDATE_PASSWORD_FAILED' })
+        })
+    }
+}
+
+
+export const deleteAccount = ({ password }) => {
+    return dispatch => {
+        dispatch({ type: 'DELETING_ACCOUNT' })
+        api.delete("/auth", { data: { password } })
+        .then((res) => {
+            const { message } = res.data
+            if(res.status === 200){
+                toast(message || "Account was deleted")
+                dispatch({ type: 'ACCOUNT_DELETED' })
+                dispatch({ type: 'LOGOUT' })
+                dispatch({ type: 'RESET_APP' })   
+            }
+        })
+        .catch((err) => {
+            toast.error("Could not delete account")
+            dispatch({ type: 'ACCOUNT_DELETION_FAILED' })
+        })
+    }
+} 
