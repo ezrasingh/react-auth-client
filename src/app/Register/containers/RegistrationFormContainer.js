@@ -14,7 +14,7 @@ class RegistrationFormContainer extends Component{
     handleSubmit = (event) => {
         event.preventDefault()
         const data = new FormData(event.target)
-        const name = data.get('first_name') + data.get('last_name')
+        const name = data.get('first_name') + ' ' + data.get('last_name')
         this.props.register({
             email : data.get('email'),
             name: titleCase(name),
