@@ -89,8 +89,10 @@ nav.navbar{
                     margin-bottom: -2px;
                     cursor: pointer;
                     &:last-child{
-                        border-bottom-color: $navbarPrimary;
-                        border-bottom-width: 0.6em;
+                        border-top: 1px solid $navbarPrimary;
+                        margin-top: -1px;
+                        border-bottom: 2px solid $navbarPrimary;
+                        margin-bottom: -2px;
                     }
                 }
             }
@@ -119,6 +121,7 @@ nav.menu{
             display: inline-block;
             a{
                 @include flexbox;
+                text-decoration: none;
                 justify-content: center;
                 align-items: center;
                 vertical-align: top;
@@ -130,6 +133,10 @@ nav.menu{
                     color: $activeLinkColor;
                     border-bottom-width: 2px;
                     border-bottom-color: $activeLinkColor;
+                }
+                &:visited{
+                    text-decoration: none;
+                    color: $fontColor;
                 }
             }
         }
