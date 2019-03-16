@@ -11,7 +11,7 @@ class Menu extends Component{
     }
     generateRoutes(){
         return this.props.routes.map((route) => (
-            <NavLink to={route.href} key={route.href}>
+            <NavLink className="link" to={route.href} key={route.href}>
                 {route.name}
             </NavLink>
         ))
