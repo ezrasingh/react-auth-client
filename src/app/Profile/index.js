@@ -4,13 +4,13 @@ import { Redirect } from 'react-router-dom'
 import { withNav } from 'app/components/Navbar'
 import Menu from './containers/Menu'
 import Home from './containers/Home'
-import Update from './containers/Update'
+import Settings from './containers/Settings'
 import Footer from 'app/components/Footer'
 
 const View = ({ action }) => {
     switch(action){
         case 'update':
-            return <Update/>
+            return <Settings/>
         case 'home':
             return <Home/>
         default:
