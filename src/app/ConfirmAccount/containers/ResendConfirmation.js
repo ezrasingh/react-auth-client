@@ -9,7 +9,7 @@ class ResendConfirmation extends Component{
     sendRecoveryLink = event => {
         event.preventDefault()
         const data = new FormData(event.target)
-        api.patch("/auth", { email : data.get("email") })
+        api.put("/validate/confirmation", { email : data.get("email") })
         .then((res) => {
             if(res.status === 200){
                 toast.success("New confirmation email sent")
