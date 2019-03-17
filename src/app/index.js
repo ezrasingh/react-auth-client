@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify'
 import { Provider } from 'react-redux'
+import ga from 'react-ga'
 import { loginRequired } from 'utils/auth'
 import Profile from './Profile'
 import Login from './Login'
@@ -14,6 +15,7 @@ import store from 'store'
 
 const Views = () => {
     window.scrollTo(0,0)
+    ga.pageview(window.location.pathname)
     return(
         <Switch>
             <Route exact path="/" component={Login}/>
