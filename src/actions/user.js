@@ -53,7 +53,6 @@ export const updateProfile = ({ name }) => {
             toast.success(message || "Profile updated.")
             dispatch({ 
                 type: 'PROFILE_UPDATED', 
-                message, 
                 profile: { name } 
             })
         })
@@ -81,7 +80,6 @@ export const updateEmail = ({ new_email, password }) => {
                 toast.warn(message || "User with that email already exists.")
             }
             else{
-                console.error(err)
                 toast.error("Server could not process update")
             }
             dispatch({ type: 'UPDATE_EMAIL_FAILED' })
