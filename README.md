@@ -8,8 +8,9 @@ This project is designed to be a frontend *Identity Access Management* (IAM) sol
 - */register* - User registration
 - */profile* - User profile *
 - */profile/update* - Update user profile *
+- */confirm/:token?* - Handles user registration confirmation
+- */recover/:token?* - Handles account recovery
 - */logout* - Dereference session *
-
 `* - Requires authentication`
 
 ## Development
