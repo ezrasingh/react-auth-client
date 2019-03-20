@@ -40,3 +40,5 @@ body{
   -webkit-align-items: center;
   align-items: center;
 }
+
+@include scrollbars(0.5em, $accent);
