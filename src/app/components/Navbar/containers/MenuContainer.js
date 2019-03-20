@@ -19,7 +19,6 @@ function Route(name, href, auth, hideOnAuth){
 class MenuContainer extends Component{
     static routes = [
         new Route('Profile', '/profile', { auth: true }),
-        new Route('Settings', '/profile/update', { auth: true }),
         new Route('Logout', '/logout', { auth: true })
     ]
     /** Filter routes that require authentication */
