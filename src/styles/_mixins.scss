@@ -63,3 +63,11 @@ $desktop-width: 1024px;
   -ms-user-select: none;
   user-select: none;
 }
+
+@mixin overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 100vh;
+}

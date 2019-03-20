@@ -1,0 +1,26 @@
+
+/** Page Transitions */
+div.page-transition-group{
+  overflow: hidden;
+  overflow-y: auto;
+  @include overlay;
+  .transition{
+    &-enter {
+        opacity: 0.1;
+    }
+
+    &-enter-active {
+        opacity: 1;
+        transition: opacity 300ms ease-in;
+    }
+
+    &-exit {
+      opacity: 1;
+    }
+    
+    &-exit-active {
+      opacity: 0.1;
+      transition: opacity 300ms ease-in;
+    }
+  }
+}
