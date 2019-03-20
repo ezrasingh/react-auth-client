@@ -71,7 +71,7 @@ class Settings extends Component{
     render(){
         const { email, profile } = this.props.user
         return(
-            <div className="container">
+            <div className="container animated slideInUp">
                 <UpdateProfile {...profile} handleSubmit={this.updateProfile}/>
                 <UpdateAccount email={email} handleSubmit={this.updateAccount}/>
             </div>

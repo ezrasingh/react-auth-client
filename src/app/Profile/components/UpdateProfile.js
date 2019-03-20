@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const UpdateProfile = ({ name, handleSubmit }) => {
     const [ firstName, lastName ] = name.split(' ')
     return(
-        <form onSubmit={handleSubmit} className="animated fadeInUp faster">
+        <form onSubmit={handleSubmit}>
             <header>
                 <h3>Profile</h3>
                 <p>Update your profile information</p>

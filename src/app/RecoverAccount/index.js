@@ -7,7 +7,7 @@ const RecoverAccount = ({ match }) => {
     const { token } = match.params
     return(
         <section className="view" id="recovery">
-            <div className="container">
+            <div className="container animated fadeIn">
                 {token ? <ConfirmRecovery token={token}/> : <SendRecovery/>}
             </div>
         </section>

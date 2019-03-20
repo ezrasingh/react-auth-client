@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Avatar from '../components/Avatar'
 import Content from '../components/Content'
@@ -11,11 +11,11 @@ class Home extends Component{
 
     render(){
         return(
-            <Fragment>
+            <div className="animated slideInUp">
                 <Avatar {...this.props.user}/>
                 <hr/>
                 <Content/>
-            </Fragment>
+            </div>
         )
     }
 }

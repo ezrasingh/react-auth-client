@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const UpdateAccount = ({ email, handleSubmit }) => {
     return(
-        <form onSubmit={handleSubmit} className="animated fadeInUp faster">
+        <form onSubmit={handleSubmit}>
             <header>
                 <h3>Account</h3>
                 <p>Update your account information</p>

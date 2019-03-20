@@ -8,7 +8,7 @@ const Tabs = ({ items }) => {
             {items.map((item) => (
                 <li key={item.href}>
                     <NavLink
-                        activeClassName="is-active"
+                        activeClassName="is-active animated flash"
                         to={item.href}
                         children={item.name}
                         {...item}
