@@ -59,7 +59,7 @@ ShallowWrapper {
           toastClassName={null}
           transition={[Function]}
         />
-        <Views />
+        <withRouter(Views) />
       </Provider>,
     },
     "ref": null,
@@ -93,7 +93,7 @@ ShallowWrapper {
             toastClassName={null}
             transition={[Function]}
           />,
-          <Views />,
+          <withRouter(Views) />,
         ],
         "store": Object {
           "dispatch": [Function],
@@ -190,7 +190,7 @@ ShallowWrapper {
             toastClassName={null}
             transition={[Function]}
           />
-          <Views />
+          <withRouter(Views) />
         </Provider>,
       },
       "ref": null,
@@ -224,7 +224,7 @@ ShallowWrapper {
               toastClassName={null}
               transition={[Function]}
             />,
-            <Views />,
+            <withRouter(Views) />,
           ],
           "store": Object {
             "dispatch": [Function],
