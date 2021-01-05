@@ -6,7 +6,7 @@
     "node": "8.x"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "classnames": "^2.2.6",
     "lodash": "^4.17.11",
     "node-sass": "^4.11.0",
